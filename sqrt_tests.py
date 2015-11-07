@@ -20,6 +20,7 @@ def sqrt2(n): # exponential
 
 # algo 3
 # digit by digit approximation
+# todo: add floating point support
 def sqrt3(n):
   arr = []
   seq = str(int(n)) # conv to string
