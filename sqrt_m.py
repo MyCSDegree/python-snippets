@@ -1,4 +1,4 @@
-n = 2.56
+n = 139876
 
 def sqrt3(n):
   arr = []
@@ -26,13 +26,12 @@ def sqrt3(n):
       a = int(lt + str(i))
       if a * i <= int(rt):
         break;
-    lt = lt + str(i)
-    rt = int(rt) - (int(lt) * i)
-    rt = str(rt)
     qu = qu + str(i)
-    lt = 2 * int(qu)
-    lt = str(lt)
+    lt = lt + str(i)
+    rt = str(int(rt) - (int(lt) * i))
+    lt = str(2 * int(qu))
 
+  # return ans
   return qu
 
 print sqrt3(n)

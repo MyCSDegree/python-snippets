@@ -22,36 +22,36 @@ def sqrt2(n): # exponential
 # digit by digit approximation
 def sqrt3(n):
   arr = []
-  seq = str(n) # conv to string
+  seq = str(int(n)) # conv to string
   while (seq): # get digits in pairs
     arr.insert(0, seq[-2:])
     seq = seq[:-2]
 
   pair = arr[0]
-  for i in range(n,0,-1): # first digit
+  for i in range(int(n),0,-1): # first digit
     sq = i * i
     if (sq <= int(pair)):
       break
 
   # assign lt, rt, qu
   qu = str(i)
+  lt = str(i * 2)
   rt = str(int(pair) - sq)
-  lt = str(sq)
 
   arr = arr[1:] # remove first element
 
   for digits in arr:
     rt = rt + digits
-    for i in range(0, 9):
+    for i in range(9, 0, -1):
       a = int(lt + str(i))
-      if a * i >= int(rt):
+      if a * i <= int(rt):
         break;
-    if a * i != int(rt):
-      i = i - 1; # we overshot by 1
     qu = qu + str(i)
-    rt = str(int(rt) - (int(lt + str(i)) * i))
+    lt = lt + str(i)
+    rt = str(int(rt) - (int(lt) * i))
     lt = str(2 * int(qu))
 
+  # return ans
   return qu
 
 # answers
